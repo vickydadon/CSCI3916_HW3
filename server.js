@@ -72,7 +72,7 @@ router.route('/movies')
         return res.status(500).json({ success: false, message: 'GET request not supported' });
     })
     .post(authJwtController.isAuthenticated, async (req, res) => {
-      const newMovie = new movie(req.body);
+      const newMovie = new Movie(req.body);
       await newMovie.save();
         return res.status(200).json({ success: true, message: 'MOVIE added successfully' });
     });
